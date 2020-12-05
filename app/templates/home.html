@@ -1,28 +1,37 @@
-<html>
+<!DOCTYPE html>
+<html lang="tr">
 
 <head>
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>duvar</title>
+    <link rel="stylesheet" href="static/css/style.css?v=0.1">
 </head>
 
 <body>
-    <div class="title">
-        <h1>Duvar</h1>
-        <p style="font-size:14px">Anonim olarak bir şeyler yaz.</p>
-    </div>
-
-    <div class="form">
+    <header>
+        <div>
+            <h1><a href="">duvar</a></h1>
+        </div>
+    </header>
+    <main>
+        <section id="posts">
+            <h2>duvar yazıları</h2>
+            <section>
+                {% for entry in entries[::-1] %}
+                <article>
+                    <p>{{ entry }}</p>
+                </article>
+                {% endfor %}
+            </section>
+        </section>
+    </main>
+    <footer>
         <form method="POST">
-            <textarea name="message" style="margin: 10px 10px" rows=2 cols=70></textarea>
-            <br>
-            <input type="submit" style="padding: 5px 5px;"/>
+            <textarea name="message" rows=2 cols=70></textarea>
+            <input type="submit" />
         </form>
-    </div>
-
-    <div class="entries">
-        {% for entry in entries[::-1] %}
-        <p>{{ entry }}</p>
-        {% endfor %}
-    </div>
+    </footer>
 
 </body>
 
